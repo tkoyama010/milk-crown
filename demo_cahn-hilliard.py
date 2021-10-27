@@ -273,7 +273,7 @@ mu_mid = (1.0-theta)*mu0 + theta*mu
 
 # Weak statement of the equations
 L0 = c
-L1 = mu
+L1 = c
 L = L0 + L1
 
 # This is a statement of the time-discrete equations presented as part
