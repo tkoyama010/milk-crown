@@ -194,9 +194,9 @@ parameters["form_compiler"]["cpp_optimize"] = True
 # a pair of linear Lagrangian elements. ::
 
 # Create mesh and build function space
-mesh = UnitSquareMesh.create(96, 96, CellType.Type.quadrilateral)
+mesh = UnitSquareMesh.create(96, 96, 96, CellType.Type.quadrilateral)
 P1 = FiniteElement("Lagrange", mesh.ufl_cell(), 1)
-ME = FunctionSpace(mesh, P1*P1)
+ME = FunctionSpace(mesh, P1*P1*P1)
 
 # Trial and test functions of the space ``ME`` are now defined::
 
