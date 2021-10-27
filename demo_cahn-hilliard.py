@@ -271,8 +271,8 @@ mu_mid = (1.0-theta)*mu0 + theta*mu
 # which is then used in the definition of the variational forms::
 
 # Weak statement of the equations
-L0 = c
-L1 = c
+L0 = c*q*dx - c0*q*dx + dt*dot(grad(mu_mid), grad(q))*dx
+L1 = mu*v*dx - dfdc*v*dx - lmbda*dot(grad(c), grad(v))*dx
 L = L0 + L1
 
 # This is a statement of the time-discrete equations presented as part
