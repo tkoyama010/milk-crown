@@ -195,7 +195,7 @@ parameters["form_compiler"]["cpp_optimize"] = True
 # a pair of linear Lagrangian elements. ::
 
 # Create mesh and build function space
-mesh = UnitCubeMesh.create(96, 96, 96, CellType.Type.hexahedron)
+mesh = UnitCubeMesh.create(96, 96, 96, CellType.Type.tetrahedron)
 P1 = FiniteElement("Lagrange", mesh.ufl_cell(), 1)
 ME = FunctionSpace(mesh, P1*P1*P1)
 
