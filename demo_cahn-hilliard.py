@@ -122,8 +122,9 @@ class InitialConditions(UserExpression):
     def eval(self, values, x):
         values[0] = 0.63 + 0.02*(0.5 - random.random())
         values[1] = 0.0
+        values[2] = 0.0
     def value_shape(self):
-        return (2,)
+        return (3,)
 
 # It is a subclass of :py:class:`Expression
 # <dolfin.functions.expression.Expression>`. In the constructor
@@ -194,9 +195,9 @@ parameters["form_compiler"]["cpp_optimize"] = True
 # a pair of linear Lagrangian elements. ::
 
 # Create mesh and build function space
-mesh = UnitSquareMesh.create(96, 96, CellType.Type.quadrilateral)
+mesh = UnitCubeMesh.create(96, 96, 96, CellType.Type.tetrahedron)
 P1 = FiniteElement("Lagrange", mesh.ufl_cell(), 1)
-ME = FunctionSpace(mesh, P1*P1)
+ME = FunctionSpace(mesh, P1*P1*P1)
 
 # Trial and test functions of the space ``ME`` are now defined::
 
