@@ -18,7 +18,6 @@ jobs:
         sudo apt-get update
         sudo apt-get -y install fenics
         sudo apt-get -y dist-upgrade
-        python3 demo_cahn-hilliard.py
     - name: setup ssh
       uses: MrSquaare/ssh-setup-action@v1
       with:
@@ -26,8 +25,4 @@ jobs:
         private-key: ${{ secrets.SSH_PRIVATE_KEY }}
     - name: run script
       run: |
-        sudo add-apt-repository ppa:fenics-packages/fenics
-        sudo apt-get update
-        sudo apt-get -y install fenics
-        sudo apt-get -y dist-upgrade
         python3 demo_cahn-hilliard.py
