@@ -12,6 +12,7 @@ jobs:
           sudo apt-get update
           sudo apt-get -y dist-upgrade
           sudo apt-get -y install fenics
+          git clone https://tkoyama010@bitbucket.org/fenics-project/dolfin.git
       - name: run script
         run: |
           python3 demo_cahn-hilliard.py
