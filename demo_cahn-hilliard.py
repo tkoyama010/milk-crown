@@ -123,7 +123,7 @@ class InitialConditions(UserExpression):
         values[0] = 0.63 + 0.02*(0.5 - random.random())
         values[1] = 0.0
     def value_shape(self):
-        return (3,)
+        return (2,)
 
 # It is a subclass of :py:class:`Expression
 # <dolfin.functions.expression.Expression>`. In the constructor
