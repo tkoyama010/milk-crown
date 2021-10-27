@@ -255,7 +255,7 @@ u0.interpolate(u_init)
 
 # Compute the chemical potential df/dc
 c = variable(c)
-f    = c
+f    = 100*c**2*(1-c)**2
 dfdc = diff(f, c)
 
 # The first line declares that ``c`` is a variable that some function
