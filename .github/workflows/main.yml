@@ -1,28 +1,17 @@
-name: milk-crown
-on:
-  schedule:
-    - cron:  '0 0 * * *'
-  push:
-    branches:
-      - main
-  pull_request:
-    branches:
-      - main
+name: main
+on: [push]
 jobs:
-  script:
-    runs-on: ubuntu-20.04
+  build_latex:
+    runs-on: ubuntu-latest
     steps:
-    - name: install
-      run: |
-        sudo add-apt-repository ppa:fenics-packages/fenics
-        sudo apt-get update
-        sudo apt-get -y install fenics
-        sudo apt-get -y dist-upgrade
-    - name: setup ssh
-      uses: MrSquaare/ssh-setup-action@v1
-      with:
-        host: github.com
-        private-key: ${{ secrets.SSH_PRIVATE_KEY }}
-    - name: run script
-      run: |
-        python3 demo_cahn-hilliard.py
+      - name: Set up Git repository
+        uses: actions/checkout@v2
+      - name: install
+        run: |
+          sudo add-apt-repository ppa:fenics-packages/fenics
+          sudo apt-get update
+          sudo apt-get -y install fenics
+          sudo apt-get -y dist-upgrade
+      - name: run script
+        run: |
+          python3 demo_cahn-hilliard.py
