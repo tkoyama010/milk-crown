@@ -10,8 +10,8 @@ jobs:
         run: |
           sudo add-apt-repository ppa:fenics-packages/fenics
           sudo apt-get update
-          sudo apt-get -y install fenics
           sudo apt-get -y dist-upgrade
+          sudo apt-get -y install fenics
       - name: run script
         run: |
           python3 demo_cahn-hilliard.py
